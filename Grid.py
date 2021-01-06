@@ -2,6 +2,7 @@ import pygame as pg
 from random import randint, getrandbits
 from Tile import Tile
 from Logic import Logic
+from time import sleep
 
 class Grid():
     SCREEN_WIDTH = 500 # width (in px)
@@ -11,7 +12,8 @@ class Grid():
     tilesMatrix = [] # initializing the matrix of Tile instances
     WHITE=(255,255,255)
     BLACK=(0,0,0)
-
+    BLUE=(0,0,255)
+    
     def __init__(self, ni, nj):
         self.grid = [[0]*ni,[0]*nj] # Number of nodes in x and y direction
         self.ni = ni
@@ -25,7 +27,7 @@ class Grid():
             for j in range(self.nj):
                 tempLst.append(Tile(xpos=i * Grid.TileWidth, ypos=j * Grid.TileHeight, state=0, i=i, j=j)) #  getrandbits(1)
             Grid.tilesMatrix.append(tempLst)
-        for i in range(round((ni-1)*(nj-1)/10)):
+        for i in range(10):
             Grid.tilesMatrix[randint(0,ni-1)][randint(0,nj-1)].setState(1)
         self.logic = Logic(Grid.tilesMatrix)
         self.gameLoop()
@@ -45,8 +47,9 @@ class Grid():
         running = True
         while (running):
             pg.display.update() # updates the screen
-            self.logic.checker()
+            
             self.drawGrid()
+            self.logic.checker()
             ev = pg.event.get() # get all events
             for event in ev:
                 if event.type == pg.MOUSEBUTTONUP:
@@ -61,6 +64,7 @@ class Grid():
                     self.initialize()
             if running is None: 
                 running = True
+            sleep(1)
 
     def pressed(self, pos):
         for x in range(self.ni):
@@ -72,7 +76,7 @@ class Grid():
     def drawGrid(self):
         for i in range(self.ni):
             for j in range(self.nj):
-                pg.draw.rect(self.WIN,Grid.WHITE,(Grid.tilesMatrix[i][j].getX(),Grid.tilesMatrix[i][j].getY(),Grid.TileWidth,Grid.TileHeight))
+                pg.draw.rect(self.WIN,Grid.BLUE,(Grid.tilesMatrix[i][j].getX(),Grid.tilesMatrix[i][j].getY(),Grid.TileWidth,Grid.TileHeight))
                 if (Grid.tilesMatrix[i][j].getState() == 0):
                     color = Grid.BLACK
                 elif (Grid.tilesMatrix[i][j].getState() == 1):
