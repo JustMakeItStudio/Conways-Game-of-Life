@@ -1,7 +1,7 @@
 class Tile:
     def __init__(self, xpos, ypos, state, i, j):
-        self.xpos = xpos
-        self.ypos = ypos
+        self.xpos = xpos # pixel count in x direction from the left
+        self.ypos = ypos # pixel count in y direction from the top
         self.state = state # 0: Dead (unclicked), 1: Alive (Clicked) 
         self.i = i # An integer showing the node in the x axis
         self.j = j # An integer showing the node in the y axis

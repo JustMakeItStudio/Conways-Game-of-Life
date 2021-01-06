@@ -1,7 +1,7 @@
 import Tile
 import Grid
 
-grid = TR.Grid(10,10)
+grid = Grid(10,10)
 
 
 # layout
