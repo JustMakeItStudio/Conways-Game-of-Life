@@ -8,9 +8,10 @@ class Logic:
         print(self.nj)
     
     def checker(self):
-        for i in range(self.ni):
-            for j in range(self.nj):
-                num_neighbours[i][j] = 0
+        num_neighbours[i][j] = 0 
+        # for i in range(self.ni):
+        #     for j in range(self.nj):
+        #         num_neighbours[i][j] = 0
 
         for i in range(self.ni):
             for j in range(self.nj):
@@ -142,3 +143,12 @@ class Logic:
                         num_neighbours[i][j] += num_neighbours[i][j]
         self.checkNeighbours(num_neighbours)
         
+        def checkNeighbours(self, num_neighbours):
+            for i in range(self.ni):
+                for j in range(self.nj):
+                    if num_neighbours[i][j] < 2 and self.tilesMatrix[i][j].getState() == 1:
+                        self.tilesMatrix[i][j].setState(0)
+                    elif num_neighbours[i][j] > 3 and self.tilesMatrix[i][j].getState() == 1:
+                        self.tilesMatrix[i][j].setState(0)
+                    elif num_neighbours[i][j] and self.tilesMatrix[i][j].getState() == 0:
+                        self.tilesMatrix[i][j].setState(1)
