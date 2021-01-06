@@ -13,9 +13,8 @@ class Grid():
     WHITE=(255,255,255)
     BLACK=(0,0,0)
     BLUE=(0,0,255)
-    
+
     def __init__(self, ni, nj):
-        self.grid = [[0]*ni,[0]*nj] # Number of nodes in x and y direction
         self.ni = ni
         self.nj = nj
         pg.init()
@@ -32,8 +31,6 @@ class Grid():
         self.logic = Logic(Grid.tilesMatrix)
         self.gameLoop()
 
-        
-
     def initialize(self):    
         Grid.TileHeight = Grid.SCREEN_HEIGHT / self.nj
         Grid.TileWidth = Grid.SCREEN_WIDTH / self.ni
@@ -45,11 +42,15 @@ class Grid():
 
     def gameLoop(self):
         running = True
+        started = False
+        one = 1
         while (running):
-            pg.display.update() # updates the screen
-            
-            self.drawGrid()
-            self.logic.checker()
+            if (started): 
+                self.logic.checker()
+                sleep(0.5)
+            else:
+                sleep(0.001)
+
             ev = pg.event.get() # get all events
             for event in ev:
                 if event.type == pg.MOUSEBUTTONUP:
@@ -62,10 +63,22 @@ class Grid():
                     Grid.SCREEN_WIDTH = event.w
                     Grid.SCREEN_HEIGHT = event.h
                     self.initialize()
+                if event.type == pg.KEYDOWN:
+                    if event.key == pg.K_SPACE:
+                        print("space")
+                        if one > 0:
+                            started = True
+                            one = -1
+                        else:
+                            started = False
+                            one = +1
+                        print(one)
+
             if running is None: 
                 running = True
-            sleep(1)
-
+            self.drawGrid()
+            pg.display.update() # updates the screen
+            
     def pressed(self, pos):
         for x in range(self.ni):
             for y in range(self.nj):
@@ -84,5 +97,4 @@ class Grid():
                 pg.draw.rect(self.WIN,color,(Grid.tilesMatrix[i][j].getX()+1,Grid.tilesMatrix[i][j].getY()+1,Grid.TileWidth-1,Grid.TileHeight-1))
                 
 
-
-newGrid = Grid(10,10) # ni, nj
+newGrid = Grid(6,6) # ni, nj
