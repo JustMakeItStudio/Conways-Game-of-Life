@@ -1,6 +1,7 @@
 import pygame as pg
 from random import randint, getrandbits
 from Tile import Tile
+from Logic import Logic
 
 class Grid():
     SCREEN_WIDTH = 500 # width (in px)
@@ -26,7 +27,10 @@ class Grid():
             Grid.tilesMatrix.append(tempLst)
         for i in range(round((ni-1)*(nj-1)/10)):
             Grid.tilesMatrix[randint(0,ni-1)][randint(0,nj-1)].setState(1)
+        self.logic = Logic(Grid.tilesMatrix)
         self.gameLoop()
+
+        
 
     def initialize(self):    
         Grid.TileHeight = Grid.SCREEN_HEIGHT / self.nj
@@ -41,6 +45,7 @@ class Grid():
         running = True
         while (running):
             pg.display.update() # updates the screen
+            self.logic.checker()
             self.drawGrid()
             ev = pg.event.get() # get all events
             for event in ev:
@@ -76,4 +81,4 @@ class Grid():
                 
 
 
-newGrid = Grid(50,40) # ni, nj
+newGrid = Grid(10,10) # ni, nj
