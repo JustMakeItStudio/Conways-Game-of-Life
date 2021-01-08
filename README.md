@@ -38,7 +38,7 @@ $ pip install pygame
 
 To clone the repository, open the command prompt at the directory of choise and type:
 ```sh
-$  git clone --recursive https://github.com/AndreasErodotou/GameOfLife
+$  git clone --recursive https://github.com/rocku0/Conways-Game-of-Life.git
 ```
 
 **Use this as you like**
