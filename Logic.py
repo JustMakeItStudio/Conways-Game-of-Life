@@ -39,8 +39,7 @@ class Logic:
 
                     if self.tilesMatrix[i-1][j-1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'center {i}, {j}')
+
                 # Left vertical line 
                 
                 if i == 0 and 0 < j < self.nj-1:
@@ -57,8 +56,7 @@ class Logic:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
                     if self.tilesMatrix[i+1][j-1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'left vertical line {i}, {j}')
+
                 # Top line
                 if 0 < i < self.ni-1 and j == 0:
                     if self.tilesMatrix[i+1][j].getState() == 1:
@@ -74,8 +72,7 @@ class Logic:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
                     if self.tilesMatrix[i-1][j+1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'top line {i}, {j}')
+
                 # Right vertical line
                 if i == self.ni-1 and 0 < j < self.nj-1:
                     if self.tilesMatrix[i-1][j].getState() == 1:
@@ -91,8 +88,7 @@ class Logic:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
                     if self.tilesMatrix[i-1][j-1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'right vertical line {i}, {j}')
+
                 # Bottom line
                 if 0 < i < self.ni-1 and j == self.nj-1:
                     if self.tilesMatrix[i+1][j].getState() == 1:
@@ -108,8 +104,7 @@ class Logic:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
                     if self.tilesMatrix[i-1][j-1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'bottom line {i}, {j}')
+
                 # Top left corner
                 if i == 0 and j == 0:
                     if self.tilesMatrix[i+1][j].getState() == 1:
@@ -120,8 +115,7 @@ class Logic:
                         
                     if self.tilesMatrix[i+1][j+1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'top left corner {i}, {j}')
+
                 # Top right corner
                 if i == self.ni-1 and j == 0:
                     if self.tilesMatrix[i-1][j].getState() == 1:
@@ -132,8 +126,7 @@ class Logic:
                         
                     if self.tilesMatrix[i-1][j+1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'top right corner {i}, {j}')
+
                 # Bottom right corner
                 if i == self.ni-1 and j == self.nj-1:
                     if self.tilesMatrix[i-1][j].getState() == 1:
@@ -144,8 +137,7 @@ class Logic:
                         
                     if self.tilesMatrix[i-1][j-1].getState() == 1:
                         num_neighbours[i][j] = num_neighbours[i][j]+1
-                    #print(f'i:{i}, j: {j}')
-                    print(f'bottom rigth corner {i}, {j}')
+
                 # Bottom left corner
                 if i == 0 and j == self.nj-1:
                     if self.tilesMatrix[i+1][j].getState() == 1:
