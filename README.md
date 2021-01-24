@@ -37,6 +37,14 @@ To clone the repository, open the command prompt at the directory of choise and 
 ```sh
 $  git clone --recursive https://github.com/rocku0/Conways-Game-of-Life.git
 ```
+### An example:
+#### Draw this little dinosaur.
+![image](https://user-images.githubusercontent.com/71210416/105625331-23163b00-5e31-11eb-8c22-f18357f0b4c8.png)
+#### Now when you press SPACE:
+![image](https://user-images.githubusercontent.com/71210416/105625385-99b33880-5e31-11eb-82f6-08a4767b801f.png)
+#### And the menu appeares when you press p:
+![image](https://user-images.githubusercontent.com/71210416/105625389-a20b7380-5e31-11eb-8ac3-68e6d927f54e.png)
+
 
 **Use this as you like**
 
