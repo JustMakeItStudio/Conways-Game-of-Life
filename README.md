@@ -25,9 +25,6 @@ Now to speed up the ganerations, navigate to the gameloop function, and lower th
 - [time]
 - [random]
 
-### Future updates:
-  - Improve the mouse event listening.
-
 ### Installation
 To run the code you need Python3, and the libraries above installed on your computer.
 To install a libray for python open the command prompt and follow the example bellow.
