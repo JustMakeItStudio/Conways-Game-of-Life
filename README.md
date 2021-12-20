@@ -4,7 +4,7 @@ Build in Python 3.
 ## The aim
 Is to recreate the Conway's game of life using python. The tile rendering is given as a separate repository here:
 ```sh
-https://github.com/rocku0/Tile-renderer
+https://github.com/JustMakeItStudio/Tile-renderer
 ```
 ### Actual implementation
 A tile world is created from the Grid class. Each tile has two states, 0 is dead (black), and 1 is alive (white). Every new generation the tree rules of the game are applied on the tile grid. 
@@ -35,7 +35,7 @@ $ pip install pygame
 
 To clone the repository, open the command prompt at the directory of choise and type:
 ```sh
-$  git clone --recursive https://github.com/rocku0/Conways-Game-of-Life.git
+$  git clone --recursive https://github.com/JustMakeItStudio/Conways-Game-of-Life.git
 ```
 ### An example:
 #### Draw this little dinosaur.
